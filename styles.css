@@ -11,6 +11,15 @@ html{
 body{
     text-align: center;
     background-color: #E9ECF5;
+    height: 98vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+header{
+    flex-grow: 1;
 }
 
 .title{
@@ -19,11 +28,14 @@ body{
     color: #993955;
     text-shadow: 3px 3px black;
     letter-spacing: 5px;
+
+    margin: 0;
 }
 
 .container{
     width: 70%;
     margin: 0 auto;
+    flex-grow: 3;
 
     display: flex;
     justify-content: center;
@@ -100,6 +112,11 @@ body{
     flex-grow: 1;
 }
 
-.pixel-hover{
-    background-color: black;
+footer{
+    font-family: 'Pacifico', cursive;
+    color: #993955;
+    font-weight: 800;
+    font-size: 20px;
+    flex-grow: 1;
+    
 }
