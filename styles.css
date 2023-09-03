@@ -9,12 +9,22 @@ html{
 }
 
 body{
-    background-color: darkslategray;
+    text-align: center;
+    background-color: #E9ECF5;
+}
+
+.title{
+    font-family: 'Pacifico', cursive;
+    font-size: 60px;
+    color: #993955;
+    text-shadow: 3px 3px black;
+    letter-spacing: 5px;
 }
 
 .canvas{
     height: 700px;
     width: 700px;
+    box-shadow: 0px 0px 3px 3px #CCD6EB;
 
     display: flex;
     flex-direction: column;
@@ -28,7 +38,6 @@ body{
 }
 
 .pixel{
-    border: 1px solid black;
     flex-grow: 1;
 }
 

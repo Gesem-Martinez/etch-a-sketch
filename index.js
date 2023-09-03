@@ -1,7 +1,6 @@
 let canvas = document.querySelector(".canvas");
 let pixelSides = 700/16;
 
-
 function canvasBuilder(size){
     //Resets the canvas content
     canvas.textContent = '';
@@ -21,5 +20,10 @@ function canvasBuilder(size){
         canvas.appendChild(row);
     }
 }
+canvasBuilder(64);
 
-canvasBuilder(27);
+canvas.querySelectorAll('.pixel').forEach((pixel) => {
+    pixel.addEventListener('mouseover', (event) => {
+        event.target.classList.add('pixel-hover');
+    });
+});
