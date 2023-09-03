@@ -33,7 +33,52 @@ body{
 .features{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
+
+    font-family: 'Roboto Slab', serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.color-picker{
+    height: 100px;
+    width: 100px;
+    border: none;
+}
+
+.color-picker:hover{
+    cursor: pointer;
+}
+
+.button{
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    text-align: left;
+
+    border-radius: 16px;
+    border: 1px solid #993955;
+
+    background-color: #CCD6EB;
+    color: #993955;
+
+    padding: 10px;
+}
+
+.button:hover{
+    opacity: 60%;
+    cursor: pointer;
+}
+
+.size-display{
+    margin: 0;
+}
+
+.size-range{
+    width: 100%;
+    accent-color: #993955;
 }
 
 .canvas{

@@ -18,13 +18,15 @@
         <div id="canvas" class="canvas"></div>
 
         <div class="features">
-            <input type="color">
-            <button>Rainbow Mode</button>
-            <button>Eraser</button>
-            <button>Clear Canvas</button>
+            <input type="color" id="colorPicker" class="color-picker">
+            <button class="button">Rainbow Mode</button>
+            <button class="button">Eraser</button>
+            <button class="button">Clear Canvas</button>
 
-            <p id="sizeDisplay" class="range-size"></p>
-            <input type="range" min="1" max="100">
+            <div class="size-slider">
+                <p id="sizeDisplay" class="size-display">16x16</p>
+                <input type="range" min="1" max="100" class="size-range" id="sizeRange">
+            </div>
         </div>
     </div>
 
