@@ -1,0 +1,37 @@
+html{
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+
+body{
+    background-color: darkslategray;
+}
+
+.canvas{
+    height: 700px;
+    width: 700px;
+
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.row{
+    display: flex;
+    flex-grow: 1;
+}
+
+.pixel{
+    border: 1px solid black;
+    flex-grow: 1;
+}
+
+.pixel-hover{
+    background-color: black;
+}
