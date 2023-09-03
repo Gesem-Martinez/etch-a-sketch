@@ -8,6 +8,8 @@ let canvas = document.querySelector(".canvas");
 let currentSize = DEFAULT_SIZE;
 let currentColor = DEFAULT_COLOR;
 let currentColorMode = DEFAULT_COLOR_MODE;
+let pixels;
+let mouseDown = false;
 
 let colorPickerButton = document.getElementById('colorPicker');
 colorPickerButton.addEventListener('click', () => {
@@ -51,8 +53,10 @@ function canvasBuilder(size){
             let pixel = document.createElement('div');
             pixel.classList.add('pixel');
             pixel.addEventListener('mouseover', (event) => {
-                changeColorMode(currentColorMode);
-                pixel.style.backgroundColor = currentColor; 
+                if(mouseDown){
+                    changeColorMode(currentColorMode);
+                    pixel.style.backgroundColor = currentColor; 
+                }
             });
     
             row.appendChild(pixel);
@@ -81,7 +85,7 @@ function changeColorMode(colorMode){
 }
 
 function clearAll(){
-    let pixels = canvas.querySelectorAll('.pixel');
+    pixels = canvas.querySelectorAll('.pixel');
 
     pixels.forEach((pixel) => {
         pixel.style.backgroundColor = '#FFFFFF';
@@ -91,4 +95,9 @@ function clearAll(){
 //Sets the elements to default settings the first time the page is opened
 window.onload = () =>{
     canvasBuilder(DEFAULT_SIZE);
+    pixels = canvas.querySelectorAll('.pixel');
+
+    document.querySelector('body').addEventListener('mousedown', () => mouseDown = true);
+    document.querySelector('body').addEventListener('mouseup', () => mouseDown = false);
+    
 }
