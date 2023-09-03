@@ -29,6 +29,15 @@ clearButton.addEventListener('click', () => {
     clearAll();
 });
 
+let sizeDisplay = document.getElementById("sizeDisplay");
+let sizeSlider = document.getElementById("sizeRange");
+sizeSlider.addEventListener("input", (event)=>{
+    currentSize = event.target.value;
+    sizeDisplay.textContent = currentSize + 'x' + currentSize;
+
+    canvasBuilder(currentSize);
+});
+
 function canvasBuilder(size){
     //Resets the canvas content
     canvas.textContent = '';
