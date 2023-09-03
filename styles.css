@@ -45,8 +45,6 @@ body{
     height: 100px;
     width: 100px;
     border: none;
-
-    background: url("./images/color-palette.svg");
 }
 
 .color-picker:hover{

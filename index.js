@@ -9,6 +9,17 @@ let currentSize = DEFAULT_SIZE;
 let currentColor = DEFAULT_COLOR;
 let currentColorMode = DEFAULT_COLOR_MODE;
 
+let colorPickerButton = document.getElementById('colorPicker');
+colorPickerButton.addEventListener('click', () => {
+    currentColorMode = 'colorPicker';
+})
+
+let rainbowButton = document.getElementById("rainbowMode");
+rainbowButton.addEventListener('click', (event) =>{
+    currentColorMode = 'rainbow';
+});
+
+
 function canvasBuilder(size){
     //Resets the canvas content
     canvas.textContent = '';
@@ -23,7 +34,7 @@ function canvasBuilder(size){
             pixel.classList.add('pixel');
             pixel.addEventListener('mouseover', (event) => {
                 changeColorMode(currentColorMode);
-                pixel.style.backgroundColor = currentColor;
+                pixel.style.backgroundColor = currentColor; 
             });
     
             row.appendChild(pixel);
@@ -38,6 +49,14 @@ function changeColorMode(colorMode){
         case 'colorPicker':
             currentColor = document.getElementById("colorPicker").value;
             break;
+        case 'rainbow':
+            let randomRed = Math.floor(Math.random() * 256);
+            let randomGreen = Math.floor(Math.random() * 256);
+            let randomBlue = Math.floor(Math.random() * 256);
+
+            currentColor = '#' +  randomRed.toString(16) + randomGreen.toString(16) + randomBlue.toString(16);
+            break;
+            
     }
 }
 
