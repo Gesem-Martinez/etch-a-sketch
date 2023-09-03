@@ -52,6 +52,16 @@ function canvasBuilder(size){
         for(let j = 0; j < size; j++){
             let pixel = document.createElement('div');
             pixel.classList.add('pixel');
+
+            pixel.addEventListener('mousedown', (event) => {
+                changeColorMode(currentColorMode);
+                pixel.style.backgroundColor = currentColor; 
+
+                mouseDown = true;
+            });
+
+            pixel.addEventListener('mouseup', () => mouseDown = false);
+
             pixel.addEventListener('mouseover', (event) => {
                 if(mouseDown){
                     changeColorMode(currentColorMode);
@@ -64,6 +74,8 @@ function canvasBuilder(size){
     
         canvas.appendChild(row);
     }
+
+    pixels = canvas.querySelectorAll('.pixel');
 }
 
 function changeColorMode(colorMode){
@@ -85,8 +97,6 @@ function changeColorMode(colorMode){
 }
 
 function clearAll(){
-    pixels = canvas.querySelectorAll('.pixel');
-
     pixels.forEach((pixel) => {
         pixel.style.backgroundColor = '#FFFFFF';
     });
@@ -95,9 +105,4 @@ function clearAll(){
 //Sets the elements to default settings the first time the page is opened
 window.onload = () =>{
     canvasBuilder(DEFAULT_SIZE);
-    pixels = canvas.querySelectorAll('.pixel');
-
-    document.querySelector('body').addEventListener('mousedown', () => mouseDown = true);
-    document.querySelector('body').addEventListener('mouseup', () => mouseDown = false);
-    
 }
