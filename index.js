@@ -1,5 +1,8 @@
+const DEFAULT_SIZE = 16;
+const DEFAULT_COLOR = '#000000';
+
+
 let canvas = document.querySelector(".canvas");
-let pixelSides = 700/16;
 
 function canvasBuilder(size){
     //Resets the canvas content
@@ -13,6 +16,9 @@ function canvasBuilder(size){
         for(let j = 0; j < size; j++){
             let pixel = document.createElement('div');
             pixel.classList.add('pixel');
+            pixel.addEventListener('mouseover', (event) => {
+                event.target.classList.add('pixel-hover');
+            });
     
             row.appendChild(pixel);
         }
@@ -20,10 +26,7 @@ function canvasBuilder(size){
         canvas.appendChild(row);
     }
 }
-canvasBuilder(64);
 
-canvas.querySelectorAll('.pixel').forEach((pixel) => {
-    pixel.addEventListener('mouseover', (event) => {
-        event.target.classList.add('pixel-hover');
-    });
-});
+window.onload = () =>{
+    canvasBuilder(DEFAULT_SIZE);
+}
