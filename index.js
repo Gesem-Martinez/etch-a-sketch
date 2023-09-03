@@ -12,13 +12,22 @@ let currentColorMode = DEFAULT_COLOR_MODE;
 let colorPickerButton = document.getElementById('colorPicker');
 colorPickerButton.addEventListener('click', () => {
     currentColorMode = 'colorPicker';
-})
+});
 
 let rainbowButton = document.getElementById("rainbowMode");
-rainbowButton.addEventListener('click', (event) =>{
+rainbowButton.addEventListener('click', () =>{
     currentColorMode = 'rainbow';
 });
 
+let eraserButton = document.getElementById("eraserMode");
+eraserButton.addEventListener('click', () => {
+    currentColorMode = 'eraser';
+});
+
+let clearButton = document.getElementById("clearCanvas");
+clearButton.addEventListener('click', () => {
+    clearAll();
+});
 
 function canvasBuilder(size){
     //Resets the canvas content
@@ -56,10 +65,19 @@ function changeColorMode(colorMode){
 
             currentColor = '#' +  randomRed.toString(16) + randomGreen.toString(16) + randomBlue.toString(16);
             break;
-            
+        case 'eraser':
+            currentColor = '#FFFFFF';
+            break;
     }
 }
 
+function clearAll(){
+    let pixels = canvas.querySelectorAll('.pixel');
+
+    pixels.forEach((pixel) => {
+        pixel.style.backgroundColor = '#FFFFFF';
+    });
+}
 
 //Sets the elements to default settings the first time the page is opened
 window.onload = () =>{
